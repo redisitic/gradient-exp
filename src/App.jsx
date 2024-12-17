@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const App = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     //console.log(clientX, clientY);
     setPosition({ x: clientX, y: clientY });
   };
+
+  useEffect(() => {
+    const hasMouse = window.matchMedia("(pointer:fine)").matches;
+    setIsTouchDevice(!hasMouse);
+  }, []);
 
   return (
     <>
@@ -22,7 +28,11 @@ const App = () => {
           top: `${position.y}px`,
         }}
       ></div>
-      <h1>Hover Effect with Gradient Circle</h1>
+      <h1 className="disclaimerText">
+        {isTouchDevice
+          ? "Sorry, this effect is not available on touch devices, please use a Desktop/Laptop instead."
+          : "Hover Effect with Gradient Circle"}
+      </h1>
     </div>
     </div>
     </>

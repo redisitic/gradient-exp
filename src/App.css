@@ -45,3 +45,22 @@ h1 {
   transform: translate(-50%, -50%);
   z-index: 500;
 }
+
+.disclaimerText{
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .gradient-circle {
+    width: 512px;
+    height: 512px;
+  }
+
+  .disclaimerText{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  
+}
