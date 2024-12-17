@@ -20,14 +20,19 @@ const App = () => {
     <>
     <div className=" relative w-screen h-screen background">
     <div className=" absolute z-10"></div>
-    <div className="container absolute z-50" onMouseMove={handleMouseMove}>
+    <div className="container absolute z-50" onMouseMove={!isTouchDevice ? handleMouseMove : null}>
       <div
-        className="gradient-circle"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-        }}
-      ></div>
+        className={`gradient-circle ${isTouchDevice ? "breathe" : ""}`}
+        style={
+          !isTouchDevice
+            ? {
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+              }
+            : {}
+        }
+      >
+      </div>
       <h1 className="disclaimerText">
         {isTouchDevice
           ? "Sorry, this effect is not available on touch devices, please use a Desktop/Laptop instead."

@@ -44,6 +44,20 @@ h1 {
   filter: blur(6.5em);
   transform: translate(-50%, -50%);
   z-index: 500;
+  transition: transform 0.1s ease-out;
+}
+
+.gradient-circle.breathe {
+  animation: breathe 3s infinite alternate ease-in-out;
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(2);
+  }
+  to {
+    transform: scale(0.5);
+  }
 }
 
 .disclaimerText{
