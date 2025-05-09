@@ -2,6 +2,7 @@
   background-color: #111111;
   position: relative;
   overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root::before{
@@ -31,6 +32,105 @@ h1 {
   color: #fff;;
   position: relative;
   z-index: 2000;
+}
+
+.top-shit{
+  position: relative;
+  z-index: 2000;
+}
+
+.outer-shit{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.inner-shit{
+  border-radius: 3vh;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #515151;
+  background-color: #23232348;
+  -webkit-backdrop-filter:blur(1vh) brightness(3) saturate(2.0);
+          backdrop-filter:blur(1vh) brightness(3) saturate(2.0);
+  padding: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 1vh;
+  text-align: center;
+  color: #fff;
+  font-size: 3vh; 
+  font-weight: bolder;
+}
+
+.inner-shit::before{
+  content:"";
+  position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background-image:
+    url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">\
+        <filter id="f"><feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="4" /></filter>\
+        <rect width="100%" height="100%" filter="url(%23f)" />\
+      </svg>');
+  background-size:160px 160px;
+  opacity:.05;
+  mix-blend-mode:overlay;
+}
+
+input{
+  color: #fff;
+  background-color: #000;
+  font-size: 2vh; 
+  padding: 1vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  border-width: 0px;
+  border-radius: 1vh;
+}
+
+input:hover{
+  transition-duration: 300ms;
+  outline: 1px solid #717171; 
+}
+
+input:focus{
+  outline: 1.5px solid #fff;
+}
+
+.cant-shit:hover{
+  transition-duration: 0ms;
+  outline: 0px none transparent; 
+}
+
+.cant-shit:focus{
+  outline: 0px none transparent; 
+}
+
+button{
+  margin: 1vh;
+  color: #fff;
+  background-color: #000;
+  font-size: 2vh; 
+  padding: 1vh;
+  width: 70%;
+  border-width: 0px;
+  border-radius: 1vh;
+  transition:
+    outline-color 300ms ease,
+    transform     80ms  ease; 
+}
+
+button:hover,
+button:focus-visible{
+  transition-duration: 300ms;
+  outline: 1px solid #717171; 
+}
+
+button:active{
+  outline-color:#717171;  /* keep the outline while pressed   */
+  transform:scale(0.97);  /* tiny shrink so it “feels” pressy */
 }
 
 .gradient-circle {
