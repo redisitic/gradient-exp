@@ -41,6 +41,17 @@ const App = () => {
     //console.log(clientX, clientY);
     setPosition({ x: clientX, y: clientY });
   };
+  useEffect(() => {
+    const stop = (e) => e.preventDefault();
+    document.addEventListener("gesturestart",  stop, { passive: false });
+    document.addEventListener("gesturechange", stop, { passive: false });
+    document.addEventListener("touchmove", stop, { passive: false });
+    return () => {
+      document.removeEventListener("gesturestart",  stop);
+      document.removeEventListener("gesturechange", stop);
+      document.removeEventListener("touchmove",      stop);
+    };
+  }, []);
 
   useEffect(() => {
     const hasMouse = window.matchMedia("(pointer:fine)").matches;
